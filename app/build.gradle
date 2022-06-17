@@ -5,9 +5,11 @@ plugins {
 android {
     compileSdk 31
 
+
+
     defaultConfig {
         applicationId "ru.kkuzmichev.simpleappforespresso"
-        minSdk 21
+        minSdk 26
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -46,5 +48,9 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:rules:1.4.0'
     androidTestImplementation 'androidx.test:runner:1.4.0'
+
+    androidTestImplementation 'io.qameta.allure:allure-kotlin-android:2.0.0'
+
+
 
 }

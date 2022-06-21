@@ -8,11 +8,14 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasAction;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasData;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import static org.hamcrest.core.AllOf.allOf;
+
+//import static ru.kkuzmichev.simpleappforespresso.MainActivityTest.childAtPosition;
 
 import android.content.Intent;
 import android.widget.ActionMenuView;
@@ -38,19 +41,20 @@ public class IntentTest {
             new IntentsTestRule(MainActivity.class);
     @Test
     public void checkIntent() {
-        ViewInteraction settings = onView(
-                withParent(isAssignableFrom(ActionMenuView.class))).perform(click());
-        ViewInteraction settingsItem = onView(allOf(withId(R.id.title), withText("Settings")));
-        settings.check(
+        ViewInteraction overflowMenuButton = onView(
+                allOf(withContentDescription("More options")));
+        ViewInteraction materialTextView = onView(
+                allOf(withId(androidx.appcompat.R.id.title), withText("Settings")));
+        overflowMenuButton.check(
                 matches(isDisplayed()));
         //Intents.init();//
         // ... Если вы решли реализовать проверку с "подписыванием" на Intent
-       settings.perform(click()); //Для запуска intent
+        overflowMenuButton.perform(click()); //Для запуска intent
         //Проверяем intent, он должен передавать url и action
         //Intents..
-        settingsItem.check(
+        materialTextView.check(
                 matches(isDisplayed()));
-        settingsItem.perform((click()));
+        materialTextView.perform((click()));
         intended (allOf(hasData("https://google.com"), hasAction(Intent.ACTION_VIEW)));
         //Intents.release();
    }

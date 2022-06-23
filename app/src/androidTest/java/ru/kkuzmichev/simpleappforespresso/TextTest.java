@@ -71,6 +71,8 @@ public class TextTest {
         menuItems.perform(click());
         recycleList.check(matches(isDisplayed()));
         galleryItem.check(matches(isDisplayed()));
+        recycleList.check(matches(isRecyclerView));
+        recycleList.check(matches(recyclerViewSizeMatcher(10)));
 
 
 

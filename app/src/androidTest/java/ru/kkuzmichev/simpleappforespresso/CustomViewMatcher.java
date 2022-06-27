@@ -1,12 +1,11 @@
 package ru.kkuzmichev.simpleappforespresso;
 
-import android.view.View;
 
+//import androidx.test.espresso.matcher.BoundedMatcher;
+import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.matcher.BoundedMatcher;
-import androidx.test.espresso.matcher.ViewMatchers;
-
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -28,7 +27,7 @@ public class CustomViewMatcher {
             }
 
             @Override
-            protected boolean matchesSafety(RecyclerView recyclerView) {
+            protected boolean matchesSafely(RecyclerView recyclerView) {
                 int items = recyclerView.getAdapter().getItemCount();
                 result = "List size: " + items;
                 return matcherSize == items;

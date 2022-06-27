@@ -2,6 +2,11 @@ plugins {
     id 'com.android.application'
 }
 
+//repositories {
+//    maven { url 'https://dl.bintray.com/qamete/maven' }
+//}
+
+//testInstrumentationRunner "io.qameta.allure.espresso.AllureAndroidRunner"
 android {
     compileSdk 31
 
@@ -53,6 +58,10 @@ dependencies {
     androidTestImplementation 'io.qameta.allure:allure-kotlin-android:2.0.0'
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.4.0'
     //implementation 'androidx.test.espresso:espresso-idling-resources:3.4.0'
+
+//    androidTestImplementation "io.qameta.allure:allure-android-commons:2.0.0"
+//    androidTestImplementation "io.qameta.allure:allure-android-model:2.0.0"
+//    androidTestImplementation "io.qameta.allure:allure-espresso:2.0.0"
 
 
 
